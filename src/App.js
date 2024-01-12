@@ -1,3 +1,4 @@
+import BillInput from "./components/BillInput";
 import PercentageInput from "./components/PercentageInput";
 
 const serviceOptions = [
@@ -22,6 +23,7 @@ const serviceOptions = [
 function App() {
   return (
     <div className="App">
+      <BillInput>How much was the bill?</BillInput>
       <PercentageInput options={serviceOptions}>
         How did you like the service?
       </PercentageInput>
