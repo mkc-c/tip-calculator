@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import BillInput from "./components/BillInput";
 import PercentageInput from "./components/PercentageInput";
+import Total from "./components/Total";
+import Reset from "./components/Reset";
 
 const serviceOptions = [
   {
@@ -29,13 +31,24 @@ function App() {
     friend: 0,
   });
 
+  const averagePercentage =
+    percentages.user && percentages.friend
+      ? (percentages.user + percentages.friend) / 2
+      : percentages.friend + percentages.user;
+  const tip = bill * parseFloat(averagePercentage).toFixed(2);
+  const total = bill + tip;
+
   const handleBillChange = (bill) => {
     setBill(bill);
   };
 
   const handlePercentageChange = (value, person) => {
-    console.log(value, person);
     setPercentages({ ...percentages, [person]: value });
+  };
+
+  const handleReset = () => {
+    setBill(0);
+    setPercentages({ user: 0, friend: 0 });
   };
 
   return (
@@ -57,6 +70,13 @@ function App() {
       >
         How did your friend like the service?
       </PercentageInput>
+      <Total bill={bill} total={total} tip={tip} />
+      <Reset
+        onReset={handleReset}
+        bill={bill}
+        user={percentages.user}
+        friend={percentages.friend}
+      />
     </div>
   );
 }

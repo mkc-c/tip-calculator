@@ -2,7 +2,7 @@ function BillInput({ children, bill, onBillChange }) {
   const handleChange = (event) => {
     const inputValue = Number(event.target.value);
     if (isNaN(inputValue)) return;
-    onBillChange(inputValue);
+    onBillChange(Number(inputValue));
   };
 
   return (
