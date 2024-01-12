@@ -1,12 +1,8 @@
-import { useState } from "react";
-
-function BillInput({ children }) {
-  const [bill, setBill] = useState(0);
-
+function BillInput({ children, bill, onBillChange }) {
   const handleChange = (event) => {
     const inputValue = Number(event.target.value);
     if (isNaN(inputValue)) return;
-    setBill(inputValue);
+    onBillChange(inputValue);
   };
 
   return (

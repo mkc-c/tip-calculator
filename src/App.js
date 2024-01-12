@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import BillInput from "./components/BillInput";
 import PercentageInput from "./components/PercentageInput";
 
@@ -21,13 +23,38 @@ const serviceOptions = [
 ];
 
 function App() {
+  const [bill, setBill] = useState(0);
+  const [percentages, setPercentages] = useState({
+    user: 0,
+    friend: 0,
+  });
+
+  const handleBillChange = (bill) => {
+    setBill(bill);
+  };
+
+  const handlePercentageChange = (value, person) => {
+    console.log(value, person);
+    setPercentages({ ...percentages, [person]: value });
+  };
+
   return (
     <div className="App">
-      <BillInput>How much was the bill?</BillInput>
-      <PercentageInput options={serviceOptions}>
+      <BillInput bill={bill} onBillChange={handleBillChange}>
+        How much was the bill?
+      </BillInput>
+      <PercentageInput
+        options={serviceOptions}
+        percentage={{ user: percentages.user }}
+        onPercentageChange={handlePercentageChange}
+      >
         How did you like the service?
       </PercentageInput>
-      <PercentageInput options={serviceOptions}>
+      <PercentageInput
+        options={serviceOptions}
+        percentage={{ friend: percentages.friend }}
+        onPercentageChange={handlePercentageChange}
+      >
         How did your friend like the service?
       </PercentageInput>
     </div>

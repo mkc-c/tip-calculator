@@ -1,10 +1,13 @@
-import { useState } from "react";
-
-function PercentageInput({ children, options }) {
-  const [percentage, setPercentage] = useState(options[0].value);
+function PercentageInput({
+  children,
+  options,
+  percentage,
+  onPercentageChange,
+}) {
+  const person = Object.keys(percentage);
 
   const handleChange = (event) => {
-    setPercentage(event.target.value);
+    onPercentageChange(event.target.value, person);
   };
 
   const renderedOptions = options.map((option, index) => {
@@ -18,7 +21,7 @@ function PercentageInput({ children, options }) {
   return (
     <div>
       <label>{children}</label>
-      <select value={percentage} onChange={handleChange}>
+      <select value={percentage[person]} onChange={handleChange}>
         {renderedOptions}
       </select>
     </div>
