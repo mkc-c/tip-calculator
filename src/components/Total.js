@@ -4,7 +4,7 @@ function Total({ total, bill, tip }) {
   return (
     <div>
       <h2>
-        You pay ${bill} (${total} + ${tip})
+        You pay ${total} (${bill} + ${tip})
       </h2>
     </div>
   );
