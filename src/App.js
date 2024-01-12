@@ -38,7 +38,6 @@ function App() {
   };
 
   const handlePercentageChange = (value, person) => {
-    console.log(value, person);
     setPercentages({ ...percentages, [person]: value });
   };
 
