@@ -8,8 +8,6 @@ function Total({ total, bill, tip }) {
     content = `You pay $${bill} ($${total} + $${tip})`;
   }
 
-  console.log(typeof content);
-
   return (
     <div>
       <h2>
