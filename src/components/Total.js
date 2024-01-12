@@ -1,17 +1,10 @@
 function Total({ total, bill, tip }) {
-  let content;
-
   if (!bill) return null;
-  else if (total && !tip) {
-    content = `You pay $${bill} ($${bill} + $${tip})`;
-  } else {
-    content = `You pay $${bill} ($${total} + $${tip})`;
-  }
 
   return (
     <div>
       <h2>
-        <b>{content}</b>
+        You pay ${bill} (${total} + ${tip})
       </h2>
     </div>
   );
