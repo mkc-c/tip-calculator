@@ -36,7 +36,6 @@ function App() {
       ? (percentages.user + percentages.friend) / 2
       : percentages.friend + percentages.user;
   const tip = bill * parseFloat(averagePercentage).toFixed(2);
-  const total = bill + tip;
 
   const handleBillChange = (bill) => {
     setBill(bill);
@@ -70,7 +69,7 @@ function App() {
       >
         How did your friend like the service?
       </PercentageInput>
-      <Total bill={bill} total={total} tip={tip} />
+      <Total bill={bill} tip={tip} />
       <Reset
         onReset={handleReset}
         bill={bill}
