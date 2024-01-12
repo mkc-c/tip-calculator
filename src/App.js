@@ -35,7 +35,7 @@ function App() {
     percentages.user && percentages.friend
       ? (percentages.user + percentages.friend) / 2
       : percentages.friend + percentages.user;
-  const tip = bill * parseFloat(averagePercentage).toFixed(2);
+  const tip = parseFloat(bill * averagePercentage).toFixed(2);
 
   const handleBillChange = (bill) => {
     setBill(bill);
