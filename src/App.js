@@ -29,6 +29,10 @@ function App() {
     friend: 0,
   });
 
+  const averagePercentage = Math.abs(
+    (percentages.user + percentages.friend) / 2
+  );
+
   const handleBillChange = (bill) => {
     setBill(bill);
   };
