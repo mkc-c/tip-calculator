@@ -1,7 +1,11 @@
-import "./App.css";
+import BillInput from "./components/BillInput";
 
 function App() {
-  return <div className="App">App</div>;
+  return (
+    <div className="App">
+      <BillInput>How much was the bill?</BillInput>
+    </div>
+  );
 }
 
 export default App;
