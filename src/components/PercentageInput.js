@@ -7,7 +7,7 @@ function PercentageInput({
   const person = Object.keys(percentage);
 
   const handleChange = (event) => {
-    onPercentageChange(event.target.value, person);
+    onPercentageChange(Number(event.target.value), person);
   };
 
   const renderedOptions = options.map((option, index) => {
